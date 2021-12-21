@@ -33,11 +33,15 @@ public class TestLoginInvalido {
 		// Clicando no botão "Login"
 		driver.findElement(By.className("btn-primary")).click();
 		
-		//Pega um texto da página
+		// Vasculha um texto especificado na página 
 		Assert.assertTrue(driver.getPageSource().contains("Usuário e senha inválidos."));
 		
+		// Verificando se o nome do usuário não está aparecendo no NavBar da página.
+		String nome = driver.findElement(By.className("font-italic")).getText();
+		Assert.assertEquals("", nome);
+		
 		//Fecha a janela
-		driver.quit();
+		driver.quit(); 
 		
 	}
 }
